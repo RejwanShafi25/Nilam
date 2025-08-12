@@ -27,9 +27,11 @@ import { Head, Link } from '@inertiajs/vue3';
         <main class="flex-1">
             <div class="">
                 <!-- Hero Section -->
-                <section class="relative flex h-[calc(100svh-3.5rem)] w-full flex-col items-center justify-center text-center">
-                    <!-- Note: A background image could be added here for more visual appeal -->
-                    <!-- Example: style="background-image: url('/path/to/your/image.jpg'); background-size: cover; background-position: center;" -->
+                <section
+                    class="relative flex h-[calc(100svh-3.5rem)] w-full flex-col items-center justify-center text-center"
+                    style="background-image: url('/Images/Landing Page/Landing page.png'); background-size: cover; background-position: center"
+                >
+
                     <div class="absolute inset-0 bg-black/50" />
                     <div class="relative z-10 mx-auto max-w-3xl">
                         <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">The Art of the Auction</h1>
