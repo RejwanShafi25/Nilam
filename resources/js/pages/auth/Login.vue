@@ -2,11 +2,11 @@
 import InputError from '@/components/InputError.vue';
 import TextLink from '@/components/TextLink.vue';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import AuthLayout from '@/layouts/auth/AuthSimpleLayout.vue';
+import AuthLayout from '@/layouts/auth/AuthSplitLayout.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
 
@@ -29,20 +29,14 @@ const submit = () => {
 </script>
 
 <template>
-    <AuthLayout>
+    <AuthLayout title="Log in to your account" description="Enter your email and password below to log in">
         <Head title="Log in" />
 
         <div v-if="status" class="mb-4 text-center text-sm font-medium text-green-600">
             {{ status }}
         </div>
 
-        <form @submit.prevent="submit">
-            <Card>
-                <CardHeader class="text-center">
-                    <CardTitle>Log in to your account</CardTitle>
-                    <CardDescription>Enter your email and password below to log in</CardDescription>
-                </CardHeader>
-                <CardContent class="grid gap-6">
+        <form @submit.prevent="submit" class="grid gap-6">
                     <div class="grid gap-2">
                         <Label for="email">Email address</Label>
                         <Input
@@ -88,14 +82,12 @@ const submit = () => {
                         <LoaderCircle v-if="form.processing" class="mr-2 h-4 w-4 animate-spin" />
                         Log in
                     </Button>
-                </CardContent>
-                <CardFooter class="justify-center">
+                <div class="text-center">
                     <p class="text-sm text-muted-foreground">
                         Don't have an account?
                         <TextLink :href="route('register')" :tabindex="5">Sign up</TextLink>
                     </p>
-                </CardFooter>
-            </Card>
+                </div>
         </form>
     </AuthLayout>
 </template>

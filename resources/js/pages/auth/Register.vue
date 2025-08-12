@@ -2,10 +2,9 @@
 import InputError from '@/components/InputError.vue';
 import TextLink from '@/components/TextLink.vue';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import AuthLayout from '@/layouts/auth/AuthSimpleLayout.vue';
+import AuthLayout from '@/layouts/auth/AuthSplitLayout.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
 
@@ -24,16 +23,11 @@ const submit = () => {
 </script>
 
 <template>
-    <AuthLayout>
+    <AuthLayout title="Create an account" description="Enter your details below to create your account">
         <Head title="Register" />
 
-        <form @submit.prevent="submit">
-            <Card>
-                <CardHeader class="text-center">
-                    <CardTitle>Create an account</CardTitle>
-                    <CardDescription>Enter your details below to create your account</CardDescription>
-                </CardHeader>
-                <CardContent class="grid gap-6">
+
+        <form @submit.prevent="submit" class="grid gap-6">
                     <div class="grid gap-2">
                         <Label for="name">Name</Label>
                         <Input
@@ -95,14 +89,12 @@ const submit = () => {
                         <LoaderCircle v-if="form.processing" class="mr-2 h-4 w-4 animate-spin" />
                         Create account
                     </Button>
-                </CardContent>
-                <CardFooter class="justify-center">
+               <div class="text-center">
                     <p class="text-sm text-muted-foreground">
                         Already have an account?
                         <TextLink :href="route('login')" :tabindex="6">Log in</TextLink>
                     </p>
-                </CardFooter>
-            </Card>
+                </div>
         </form>
     </AuthLayout>
 </template>

@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import AppLogoIcon from '@/components/AppLogoIcon.vue';
 import { Link, usePage } from '@inertiajs/vue3';
+import AppLogo from '@/components/AppLogo.vue';
 
 const page = usePage();
 const name = page.props.name;
-const quote = page.props.quote;
 
 defineProps<{
     title?: string;
@@ -14,18 +13,16 @@ defineProps<{
 
 <template>
     <div class="relative grid h-dvh flex-col items-center justify-center px-8 sm:px-0 lg:max-w-none lg:grid-cols-2 lg:px-0">
-        <div class="relative hidden h-full flex-col bg-muted p-10 text-white lg:flex dark:border-r">
-            <div class="absolute inset-0 bg-zinc-900" />
+    <div class="relative hidden h-full flex-col p-10 text-white lg:flex dark:border-r">
+            <div
+                class="absolute inset-0 bg-cover"
+                style="background-image: url('https://images.unsplash.com/photo-1493841160601-33a4807cb6de?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"
+            />
             <Link :href="route('home')" class="relative z-20 flex items-center text-lg font-medium">
-                <AppLogoIcon class="mr-2 size-8 fill-current text-white" />
+                <AppLogo class="mr-2 h-8 w-auto" />
                 {{ name }}
             </Link>
-            <div v-if="quote" class="relative z-20 mt-auto">
-                <blockquote class="space-y-2">
-                    <p class="text-lg">&ldquo;{{ quote.message }}&rdquo;</p>
-                    <footer class="text-sm text-neutral-300">{{ quote.author }}</footer>
-                </blockquote>
-            </div>
+            
         </div>
         <div class="lg:p-8">
             <div class="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
