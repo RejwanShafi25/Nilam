@@ -6,23 +6,7 @@ import { Head, Link } from '@inertiajs/vue3';
 <template>
     <Head title="Welcome" />
     <div class="flex min-h-svh flex-col bg-background text-foreground">
-        <!-- Header -->
-        <header class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div class="container flex h-14 max-w-screen-2xl items-center justify-between">
-                <Link href="/" class="mr-6 ml-4 flex items-center space-x-2">
-                    <img src="/images/logo/Nilam Logo.png" alt="Nilam Logo" class="h-8 w-auto" />
-                </Link>
-                <nav class="flex items-center gap-4">
-                    <Link :href="route('login')">
-                        <Button variant="ghost">Log in</Button>
-                    </Link>
-                    <Link :href="route('register')">
-                        <Button>Sign up</Button>
-                    </Link>
-                </nav>
-            </div>
-        </header>
-
+        
         <!-- Main Content -->
         <main class="flex-1">
             <div class="">
